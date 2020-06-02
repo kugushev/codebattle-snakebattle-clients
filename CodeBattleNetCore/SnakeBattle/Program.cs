@@ -5,7 +5,7 @@ namespace Client
 {
     class Program
     {
-        const string SERVER_ADDRESS = "http://epruizhsa0001t2:8080/codenjoy-contest/board/player/4ol1pue9vqijd518yjlb?code=1180389975885916399&gameName=snakebattle";
+        const string SERVER_ADDRESS = "http://codebattle-pro-2020s1.westeurope.cloudapp.azure.com/codenjoy-contest/board/player/srzojelzkw0c4gnpnw7y?code=3609046216030092067&gameName=snakebattle";
 
         static void Main(string[] args)
         {
@@ -18,8 +18,22 @@ namespace Client
 
         private static SnakeAction DoRun(GameBoard gameBoard)
         {
+            try
+            {
+                return new Brain().DoRun(gameBoard);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return RandomAi();
+            }
+            
+        }
+
+        private static SnakeAction RandomAi()
+        {
             var random = new Random();
-            var direction = (Direction)random.Next(Enum.GetValues(typeof(Direction)).Length);
+            var direction = (Direction) random.Next(Enum.GetValues(typeof(Direction)).Length);
             var act = random.Next() % 2 == 0;
             return new SnakeAction(act, direction);
         }

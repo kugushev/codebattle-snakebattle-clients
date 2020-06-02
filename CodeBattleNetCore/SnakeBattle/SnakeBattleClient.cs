@@ -14,9 +14,9 @@ namespace Client
         protected override string DoMove(GameBoard gameBoard)
         {
             //Just print current state (gameBoard) to console
-            Console.Clear();
+            //Console.Clear();
             //Console.SetCursorPosition(0, 0);
-            gameBoard.PrintBoard();
+            //gameBoard.PrintBoard();
 
             var action = _callback(gameBoard).ToString();
             Console.WriteLine(action);

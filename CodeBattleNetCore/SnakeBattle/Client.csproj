@@ -9,4 +9,8 @@
     <ProjectReference Include="..\SnakeBattle.Api\SnakeBattle.Api.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="RoyT.AStar" Version="3.0.1" />
+  </ItemGroup>
+
 </Project>
